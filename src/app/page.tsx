@@ -24,6 +24,7 @@ export default async function Home() {
     email: "hello@example.com",
     linkedinUrl: "https://www.linkedin.com/in/prabaswara-shafa-azarioma",
     githubUrl: "https://github.com/ShafaAzahri",
+    resumeUrl: "https://drive.google.com/file/d/1zR_DHnFhX9uCBPCxbiudyjFPqkQkYI7D/view?usp=drive_link",
     heroTerminal1: "Prabaswara Shafa Azarioma",
     heroTerminal2: "Backend Developer | Software QA Enthusiast",
     heroTerminal3: "Tech: PHP, Laravel, Python, MySQL",
@@ -37,7 +38,7 @@ export default async function Home() {
   return (
     <ClientWrapper>
       <div className="min-h-screen bg-background">
-        <Navbar />
+        <Navbar profile={p} />
         
         <main className="flex-grow">
           <Hero profile={p} projectCount={projectCount} certificateCount={certificationCount} />

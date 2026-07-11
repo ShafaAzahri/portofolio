@@ -171,6 +171,7 @@ export async function updateProfile(formData: FormData) {
   const email = formData.get("email") as string;
   const linkedinUrl = formData.get("linkedinUrl") as string | null;
   const githubUrl = formData.get("githubUrl") as string | null;
+  const resumeUrl = formData.get("resumeUrl") as string | null;
   
   const heroTerminal1 = formData.get("heroTerminal1") as string;
   const heroTerminal2 = formData.get("heroTerminal2") as string;
@@ -190,6 +191,7 @@ export async function updateProfile(formData: FormData) {
       email,
       linkedinUrl,
       githubUrl,
+      resumeUrl,
       heroTerminal1,
       heroTerminal2,
       heroTerminal3,

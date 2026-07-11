@@ -111,7 +111,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
         <div className="bg-surface p-8 rounded-3xl border border-outline/20 ambient-shadow space-y-6">
           <h2 className="text-xl font-semibold text-foreground border-b border-outline/10 pb-2">Contact & Socials</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">Email</label>
               <input required name="email" defaultValue={profile.email || ""} type="email" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
@@ -123,6 +123,10 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">GitHub URL</label>
               <input name="githubUrl" defaultValue={profile.githubUrl || ""} type="url" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground">Resume URL</label>
+              <input name="resumeUrl" defaultValue={profile.resumeUrl || ""} type="url" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
             </div>
           </div>
         </div>

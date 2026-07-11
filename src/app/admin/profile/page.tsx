@@ -17,6 +17,7 @@ export default async function ProfileAdminPage() {
       email: "",
       linkedinUrl: "",
       githubUrl: "",
+      resumeUrl: "",
       heroTerminal1: "",
       heroTerminal2: "",
       heroTerminal3: "",

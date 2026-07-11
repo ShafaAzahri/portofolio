@@ -3,7 +3,15 @@
 import Link from "next/link";
 import { Button } from "@heroui/react";
 
-export default function Navbar() {
+interface NavbarProps {
+  profile?: {
+    resumeUrl?: string | null;
+  };
+}
+
+export default function Navbar({ profile }: NavbarProps) {
+  const resumeLink = profile?.resumeUrl || "https://drive.google.com/file/d/1zR_DHnFhX9uCBPCxbiudyjFPqkQkYI7D/view?usp=drive_link";
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline/20 shadow-sm transition-all duration-300 ease-in-out">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
@@ -18,11 +26,8 @@ export default function Navbar() {
           <Link href="#about" className="text-foreground hover:text-primary transition-colors py-2 px-1 text-sm font-medium">
             About
           </Link>
-          <Link href="#projects" className="text-primary font-bold border-b-2 border-primary py-2 px-1 text-sm transition-all duration-300 ease-in-out">
+          <Link href="#projects" className="text-foreground hover:text-primary transition-colors py-2 px-1 text-sm font-medium">
             Projects
-          </Link>
-          <Link href="#tech-stack" className="text-foreground hover:text-primary transition-colors py-2 px-1 text-sm font-medium">
-            Tech Stack
           </Link>
           <Link href="#certifications" className="text-foreground hover:text-primary transition-colors py-2 px-1 text-sm font-medium">
             Certifications
@@ -38,7 +43,7 @@ export default function Navbar() {
           render={(props) => (
             <a 
               {...(props as Record<string, unknown>)} 
-              href="https://drive.google.com/file/d/1zR_DHnFhX9uCBPCxbiudyjFPqkQkYI7D/view?usp=drive_link" 
+              href={resumeLink} 
               target="_blank" 
               rel="noopener noreferrer" 
             />
