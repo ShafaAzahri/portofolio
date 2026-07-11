@@ -1,0 +1,510 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Prabaswara Shafa Azarioma - Backend Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ambient subtle shadow for cards */
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Subtle grid background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f0f1f2",
+                      "inverse-primary": "#c6c6c6",
+                      "surface-tint": "#5e5e5e",
+                      "tertiary-fixed-dim": "#c6c6cf",
+                      "background": "#f9f9fa",
+                      "surface-dim": "#dadadb",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "surface": "#f9f9fa",
+                      "secondary-container": "#e1dfdf",
+                      "inverse-surface": "#2f3132",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#1a1b22",
+                      "on-surface": "#1a1c1d",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#45464e",
+                      "on-background": "#1a1c1d",
+                      "outline-variant": "#cfc4c5",
+                      "on-secondary-fixed-variant": "#464747",
+                      "surface-variant": "#e2e2e3",
+                      "primary-fixed": "#e2e2e2",
+                      "surface-container-high": "#e8e8e9",
+                      "surface-container": "#eeeeef",
+                      "on-primary": "#ffffff",
+                      "secondary": "#5e5e5e",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-container": "#1a1b22",
+                      "secondary-fixed": "#e4e2e2",
+                      "on-primary-container": "#848484",
+                      "primary": "#000000",
+                      "on-surface-variant": "#4c4546",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "surface-container-low": "#f3f3f4",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "tertiary": "#000000",
+                      "on-tertiary-container": "#83838c",
+                      "on-primary-fixed": "#1b1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#626262",
+                      "primary-container": "#1b1b1b",
+                      "outline": "#7e7576",
+                      "on-primary-fixed-variant": "#474747",
+                      "surface-bright": "#f9f9fa",
+                      "tertiary-fixed": "#e2e1eb",
+                      "surface-container-highest": "#e2e2e3",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "xl": "40px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "xs": "4px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "code": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code": [
+                              "13px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-xl": [
+                              "60px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased selection:bg-primary selection:text-on-primary bg-grid-pattern">
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-lg h-16">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md font-bold">
+                    P
+                </div>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Prabaswara</span>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-2 px-1 hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed-variant/50 rounded-lg" href="#about">About</a>
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary py-2 px-1 hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed-variant/50 rounded-lg transition-all duration-300 ease-in-out" href="#projects">Projects</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-2 px-1 hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed-variant/50 rounded-lg" href="#tech-stack">Tech Stack</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-2 px-1 hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed-variant/50 rounded-lg" href="#certifications">Certifications</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors py-2 px-1 hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed-variant/50 rounded-lg" href="#contact">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-[12px] font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                Resume
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-[75vh] min-h-[600px] flex items-center justify-center pt-20 overflow-hidden" id="hero">
+<!-- Shader Background -->
+<div class="absolute inset-0 z-0">
+
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-lg w-full flex flex-col md:flex-row items-center gap-xl md:gap-gutter">
+<!-- Left: Content & Stats -->
+<div class="flex-1 space-y-md text-center md:text-left mt-xl md:mt-0 opacity-0 transform translate-y-8 animate-[fadeUp_1s_ease-out_forwards]">
+<div class="inline-flex items-center gap-xs px-sm py-xs bg-surface-container rounded-full border border-outline-variant/50">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-code text-code text-secondary">Available for new opportunities</span>
+</div>
+<h1 class="font-display-xl text-display-xl tracking-tight text-primary">
+                    Prabaswara Shafa Azarioma
+                </h1>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface-variant max-w-2xl">
+                    Backend Developer &amp; Software QA Enthusiast
+</h2>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl mx-auto md:mx-0">
+                    Building robust, scalable backends and ensuring software quality through rigorous testing methodologies.
+                </p>
+<div class="flex flex-col sm:flex-row items-center gap-sm pt-sm justify-center md:justify-start">
+<a class="w-full sm:w-auto h-[48px] px-xl bg-primary text-on-primary rounded-[12px] flex items-center justify-center font-label-sm text-label-sm hover:bg-inverse-surface transition-colors" href="#projects">
+                        View Projects
+                    </a>
+<a class="w-full sm:w-auto h-[48px] px-xl bg-transparent border border-outline-variant text-primary rounded-[12px] flex items-center justify-center font-label-sm text-label-sm hover:bg-surface-container-low transition-colors" href="#contact">
+                        Contact Me
+                    </a>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-outline-variant/30">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-primary counter" data-target="3">3</span><span class="text-primary font-bold">+</span>
+<span class="font-label-sm text-secondary">Projects</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-primary counter" data-target="5">5</span><span class="text-primary font-bold">+</span>
+<span class="font-label-sm text-secondary">Certificates</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-md text-primary mt-1">Backend</span>
+<span class="font-label-sm text-secondary">Developer</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-md text-primary mt-1">QA</span>
+<span class="font-label-sm text-secondary">Enthusiast</span>
+</div>
+</div>
+</div>
+<!-- Right: Terminal Card -->
+<div class="flex-1 flex justify-center md:justify-end opacity-0 transform translate-y-8 animate-[fadeUp_1s_ease-out_0.3s_forwards]">
+<div class="relative w-full max-w-[450px] rounded-[24px] overflow-hidden border border-outline-variant ambient-shadow bg-surface-container-high font-code text-code text-on-surface-variant flex flex-col">
+<!-- Window Header -->
+<div class="bg-surface-container border-b border-outline-variant/50 p-sm flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-[#fbbc04]"></div> <!-- Warning sort of color -->
+<div class="w-3 h-3 rounded-full bg-[#34a853]"></div> <!-- Success sort of color -->
+<div class="ml-2 text-xs text-secondary opacity-70">bash - ~</div>
+</div>
+<!-- Terminal Body -->
+<div class="p-lg space-y-md">
+<div class="">
+<span class="text-primary font-bold">$</span> whoami
+            <div class="mt-xs text-primary">Prabaswara Shafa Azarioma</div>
+</div>
+<div class="">
+<span class="text-primary font-bold">$</span> cat info.txt
+            <div class="mt-xs text-secondary">Backend Developer | Software QA Enthusiast</div>
+</div>
+<div class="">
+<span class="text-primary font-bold">$</span> ls -l skills/
+            <div class="mt-xs text-secondary">Tech: PHP, Laravel, Python, MySQL</div>
+</div>
+<div class="animate-pulse text-primary font-bold">_</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-xl relative z-10 bg-background" id="about"><div class="max-w-container-max mx-auto px-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-xl md:gap-gutter items-center">
+        <!-- Left Column: Narrative -->
+        <div class="space-y-md"><h3 class="font-code text-code text-secondary uppercase tracking-widest">About Me</h3><p class="font-headline-md text-headline-md text-primary">Computer Engineering student with experience in backend development, database management, and software application development. Familiar with software testing, API validation, debugging, and defect identification.</p><p class="font-body-lg text-body-lg text-secondary">Experienced in working with PHP, MySQL, Flutter, and Python. Interested in Software Quality Assurance and passionate about ensuring software quality through systematic testing and problem-solving.</p></div>
+        <!-- Right Column: Structured Info Grid -->
+        <div class="grid grid-cols-2 gap-md">
+            
+            <div class="p-lg bg-surface-container-low border border-outline-variant/30 rounded-[24px] ambient-shadow">
+                <span class="material-symbols-outlined text-primary mb-sm">location_on</span>
+                <h4 class="font-label-sm text-secondary uppercase">Location</h4>
+                <p class="font-headline-md text-primary">Semarang</p>
+            </div>
+            <div class="p-lg bg-surface-container-low border border-outline-variant/30 rounded-[24px] ambient-shadow">
+                <span class="material-symbols-outlined text-primary mb-sm">rocket_launch</span>
+                <h4 class="font-label-sm text-secondary uppercase">Projects</h4>
+                <p class="font-headline-md text-primary">3+</p>
+            </div>
+            <div class="p-lg bg-surface-container-low border border-outline-variant/30 rounded-[24px] ambient-shadow">
+                <span class="material-symbols-outlined text-primary mb-sm">verified_user</span>
+                <h4 class="font-label-sm text-secondary uppercase">Focus</h4>
+                <p class="font-headline-md text-primary">Backend QA</p>
+            </div>
+        </div>
+    </div>
+</div></section>
+<!-- Projects Section (Bento Grid) -->
+<section class="py-xl relative z-10 bg-background" id="projects">
+<div class="max-w-container-max mx-auto px-lg">
+<div class="mb-lg">
+<h3 class="font-headline-lg text-headline-lg text-primary">Featured Work</h3>
+<p class="font-body-md text-body-md text-secondary mt-xs">Engineering solutions that scale.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Large Card (Full width) -->
+<div class="md:col-span-2 group relative bg-surface rounded-[24px] border border-outline-variant overflow-hidden ambient-shadow hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row h-auto md:h-[400px]">
+<div class="w-full md:w-3/5 h-[240px] md:h-full bg-surface-container-high overflow-hidden">
+<img alt="AutoClipper AI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, high-tech interface showcasing a video editing dashboard powered by AI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhQ_ugCny60arNr4IX37uTM18ys9SC8wpjWNe__v2zrWdoC-t0tjGhVfPny4_AYwjdx4xt7ruNbPdqj9QZ2ovw2swkd7nfrYqFVHN_dYmX-S7Qk86wcIQ4r0dbh12XJEPKK7htfLEeUlUKbGMHAMgTkRG5sJ438bTfXdczvsIygGSVoJ-PXCnpx41BDlrDyN2ECECBH3IGx7md7vLdJMpqjGk1lXeGWZgyiL3XmFJafCE1zlUOZdKTer8MY9Oe9052-YgKVB8BkEJg">
+</div>
+<div class="p-lg md:p-xl w-full md:w-2/5 flex flex-col justify-center">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">AutoClipper AI</h4>
+<p class="font-body-lg text-body-lg text-secondary mb-md">Automated video highlights extraction using state-of-the-art computer vision models. Processes hours of footage in minutes.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex gap-xs flex-wrap">
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">Python</span>
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">OpenAI</span>
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">React</span>
+</div>
+<div class="flex gap-sm">
+<button class="w-[32px] h-[32px] flex items-center justify-center border border-outline-variant rounded-full hover:bg-surface-container-low transition-colors" title="GitHub">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+<a class="w-[32px] h-[32px] flex items-center justify-center bg-primary text-on-primary rounded-full hover:opacity-90 transition-opacity" href="/projects/autoclipper" title="Live Demo">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Medium Card 1 -->
+<div class="md:col-span-1 group relative bg-surface rounded-[24px] border border-outline-variant overflow-hidden ambient-shadow hover:shadow-lg transition-all duration-300 flex flex-col h-[400px]">
+<div class="h-[200px] w-full bg-surface-container-high overflow-hidden">
+<img alt="Sigma Dashboard" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="A modern financial dashboard UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZRHMVhOiITryw_t6ZoQ1m5XFWBWQfyPP2lGDTMiNvYEL4BiNt8Ppm_Z2s1rws5KU_DT0JMYFK7BXHgEiBRwUp_w7kzohePUSKZs3CJevaaJKweNuX-wGpYLmi1D25NxJboleKSc3juAfXYu_0Og2fqwEP4C3Tf_H8OO4fq0xr3eI8rkDaybYs_GB3gWgqAOArPUHPdyq-pRcp3pg9LS-l-V5zHssJWk88fUqmZuFo1SfvZvhdo489tRwgrDQZchEHxx-DydikKqBc">
+</div>
+<div class="p-lg flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-xs">Sigma</h4>
+<p class="font-body-md text-body-md text-secondary line-clamp-3">Real-time financial analytics dashboard handling high-frequency data streams.</p>
+</div>
+<div class="flex items-center justify-between mt-sm">
+<div class="flex gap-xs flex-wrap">
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">Next.js</span>
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">Prisma</span>
+</div>
+<a class="text-primary hover:text-surface-tint font-label-sm text-sm flex items-center gap-1" href="/projects/sigma">View <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<!-- Medium Card 2 -->
+<div class="md:col-span-1 group relative bg-surface rounded-[24px] border border-outline-variant overflow-hidden ambient-shadow hover:shadow-lg transition-all duration-300 flex flex-col h-[400px]">
+<div class="h-[200px] w-full bg-surface-container-high overflow-hidden">
+<img alt="Cetaku SaaS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, modular SaaS platform interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGyl5w5AtUMnrlbAw-JVNh1nlrj4FLOB4ETDt2N1vfvtF2z4_3v4iKIkM8EEXKvys2rf_9LDUhm3Pz7mlyK3wE5gmcejilioJ8wH6s_L91uKaQwauL7KxVMgymijlsMXwjQ37NoFcyQZwkeTQl24wJq2K34rljX4UWppdLs_t_EixsRkz2_vo1AJZhQ1W6-D3PBfG1IansO-Rz-FPQq0VB3G2H07ftKA7CUwZxFFACF-3P19iOwfnX6Tx0khMwZf6oObO1UV1l-eSH">
+</div>
+<div class="p-lg flex-1 flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">Cetaku Print API</h4>
+<p class="font-body-md text-body-md text-secondary line-clamp-3">Enterprise SaaS platform providing programmatic print-on-demand services.</p>
+</div>
+<div class="flex items-center justify-between mt-sm">
+<div class="flex gap-xs flex-wrap">
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">Laravel</span>
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">MySQL</span>
+<span class="px-sm py-[2px] bg-surface-container-high rounded-full font-code text-[11px] text-on-surface-variant">Redis</span>
+</div>
+<a class="h-[32px] px-sm flex items-center justify-center border border-outline-variant text-primary rounded-[12px] font-label-sm text-label-sm hover:bg-surface-container-low transition-colors" href="/projects/cetaku">
+    Case Study
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack (Scrolling Chips) -->
+<section class="py-xl bg-surface-container-lowest overflow-hidden border-t border-outline-variant/20" id="tech-stack">
+<div class="max-w-container-max mx-auto px-lg mb-md">
+<h3 class="font-code text-code text-secondary uppercase tracking-widest">Core Capabilities</h3>
+</div>
+<!-- Marquee effect wrapper -->
+<div class="relative flex overflow-x-hidden border-y border-outline-variant/30 py-md">
+<div class="animate-[marquee_20s_linear_infinite] whitespace-nowrap flex gap-sm px-sm items-center">
+<!-- Repeated items for seamless loop -->
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">terminal</span> PHP</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">layers</span> Laravel</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">code_blocks</span> Python</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">database</span> MySQL</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">api</span> REST API</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">sync_alt</span> Postman</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">source_environment</span> Git</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">hub</span> GitHub</span>
+<!-- Duplicate for loop -->
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs ml-sm"><span class="material-symbols-outlined text-[16px]">terminal</span> PHP</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">layers</span> Laravel</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">code_blocks</span> Python</span>
+<span class="px-md py-sm bg-surface border border-outline-variant rounded-[12px] font-label-sm text-label-sm text-primary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">database</span> MySQL</span>
+</div>
+<!-- Gradient fades for smooth edges -->
+<div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-surface-container-lowest to-transparent pointer-events-none"></div>
+<div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-surface-container-lowest to-transparent pointer-events-none"></div>
+</div>
+</section>
+<!-- Certifications Section Placeholder -->
+<section class="py-xl relative z-10 bg-background border-t border-outline-variant/20" id="certifications">
+<div class="max-w-container-max mx-auto px-lg">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-md">Certifications</h3>
+<p class="text-secondary font-body-md">[ Certifications Content Goes Here ]</p>
+</div>
+</section>
+<!-- Journey Section Placeholder -->
+<section class="py-xl relative z-10 bg-surface-container-lowest border-t border-outline-variant/20" id="journey">
+<div class="max-w-container-max mx-auto px-lg">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-md">Journey</h3>
+<p class="text-secondary font-body-md">[ Experience Timeline Goes Here ]</p>
+</div>
+</section>
+<!-- Contact Section Placeholder -->
+<section class="py-xl relative z-10 bg-background border-t border-outline-variant/20" id="contact">
+<div class="max-w-container-max mx-auto px-lg">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-md">Contact</h3>
+<p class="text-secondary font-body-md">[ Contact Form/Info Goes Here ]</p>
+</div>
+</section>
+<!-- Footer Placeholder -->
+<footer class="py-md border-t border-outline-variant/30 text-center text-secondary font-label-sm">
+<p class="">© 2024 Prabaswara Shafa Azarioma. All rights reserved.</p>
+</footer>
+<style>
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Assuming content is doubled */
+        }
+    </style>
+<script>
+    // Simple counter animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    });
+</script>
+
+
+</body></html>

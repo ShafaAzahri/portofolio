@@ -3,7 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function About({ profile }: { profile?: any }) {
+interface ProfileData {
+  aboutTitle?: string;
+  aboutDescription?: string;
+  location?: string;
+  focus?: string;
+}
+
+export default function About({ profile }: { profile?: ProfileData }) {
   const tabs = [
     { id: "bio", label: "Profil" },
     { id: "focus", label: "Fokus" },
