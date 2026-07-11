@@ -21,8 +21,8 @@ export default function Hero({ profile, projectCount, certificateCount }: { prof
 
   useEffect(() => {
     const t1 = profile?.heroTerminal1 || "Prabaswara Shafa Azarioma";
-    const t2 = profile?.heroTerminal2 || "Backend Developer | Software QA Enthusiast";
-    const t3 = profile?.heroTerminal3 || "Tech: PHP, Laravel, Python, MySQL";
+    const t2 = profile?.heroTerminal2 || "Backend Developer | Quality Assurance Engineer";
+    const t3 = profile?.heroTerminal3 || "Tech: PHP, Laravel, Python, MySQL, Katalon, k6";
 
     let i = 0;
     if (step === 0) {
@@ -86,11 +86,11 @@ export default function Hero({ profile, projectCount, certificateCount }: { prof
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-medium text-foreground/80 max-w-2xl">
-            {profile?.headline || "Backend Developer & Software QA Enthusiast"}
+            {profile?.headline || "Backend Developer & Quality Assurance Specialist"}
           </h2>
 
           <p className="text-lg text-secondary max-w-xl mx-auto md:mx-0">
-            {profile?.shortBio || "Building robust, scalable backends and ensuring software quality through rigorous testing methodologies."}
+            {profile?.shortBio || "Focused on developing reliable backend systems and ensuring software quality through robust, automated testing methodologies."}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center md:justify-start">

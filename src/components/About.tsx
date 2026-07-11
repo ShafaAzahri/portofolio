@@ -12,9 +12,9 @@ interface ProfileData {
 
 export default function About({ profile }: { profile?: ProfileData }) {
   const tabs = [
-    { id: "bio", label: "Profil" },
-    { id: "focus", label: "Fokus" },
-    { id: "background", label: "Latar Belakang" }
+    { id: "bio", label: "Profile" },
+    { id: "focus", label: "Focus" },
+    { id: "background", label: "Background" }
   ];
   const [activeTab, setActiveTab] = useState("bio");
 
@@ -50,14 +50,14 @@ export default function About({ profile }: { profile?: ProfileData }) {
             className="lg:col-span-7 space-y-8"
           >
             {/* Tabs Selector */}
-            <div className="flex border-b border-outline/10 gap-6 mb-6">
+            <div className="flex border-b border-outline/10 gap-8 md:gap-12 mb-6">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`pb-3 text-sm font-semibold tracking-wide uppercase transition-all duration-300 relative ${
+                  className={`pb-4 text-base md:text-lg lg:text-xl font-bold tracking-wide uppercase transition-all duration-300 relative ${
                     activeTab === tab.id
-                      ? "text-primary font-bold cursor-pointer"
+                      ? "text-primary cursor-pointer"
                       : "text-secondary hover:text-foreground cursor-pointer"
                   }`}
                 >
@@ -86,7 +86,7 @@ export default function About({ profile }: { profile?: ProfileData }) {
                 >
                   {activeTab === "bio" && (
                     <p className="text-2xl md:text-3xl text-foreground font-semibold leading-snug">
-                      {profile?.aboutTitle || "Computer Engineering student with experience in backend development, database management, and software application development."}
+                      {profile?.aboutTitle || "Computer Engineering student with hands-on experience in backend engineering, database design, and software application development. Proficient in building and managing robust systems using PHP, Laravel, Python, and RESTful APIs, with a strong focus on security, reliability, and clean architecture."}
                     </p>
                   )}
                   
@@ -94,7 +94,7 @@ export default function About({ profile }: { profile?: ProfileData }) {
                     <div className="relative pl-6">
                       <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full"></div>
                       <p className="text-lg md:text-xl text-secondary leading-relaxed whitespace-pre-line">
-                        {profile?.aboutDescription || "Familiar with software testing, API validation, debugging, and defect identification.\n\nExperienced in working with PHP, MySQL, Flutter, and Python. Interested in Software Quality Assurance and passionate about ensuring software quality through systematic testing and problem-solving."}
+                        {profile?.aboutDescription || "Passionate about Backend Development and Quality Assurance, with strong analytical and problem-solving skills. Dedicated to building reliable, high-quality software through systematic testing, application optimization, and effective development practices. Experienced in automated testing using Katalon, k6, and other industry-standard automation testing tools."}
                       </p>
                     </div>
                   )}
