@@ -4,10 +4,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ProfileData {
-  aboutTitle?: string;
-  aboutDescription?: string;
-  location?: string;
-  focus?: string;
+  aboutTitle?: string | null;
+  aboutDescription?: string | null;
+  location?: string | null;
+  focus?: string | null;
 }
 
 export default function About({ profile }: { profile?: ProfileData }) {

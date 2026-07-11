@@ -6,21 +6,21 @@ import { updateProfile } from "@/actions/adminActions";
 import { useRouter } from "next/navigation";
 
 interface Profile {
-  id?: string;
-  name?: string;
-  headline?: string;
-  shortBio?: string;
-  heroTerminal1?: string;
-  heroTerminal2?: string;
-  heroTerminal3?: string;
-  email?: string;
-  linkedinUrl?: string;
-  githubUrl?: string;
-  aboutTitle?: string;
-  aboutDescription?: string;
-  location?: string;
-  focus?: string;
-  resumeUrl?: string;
+  id?: number | string;
+  name?: string | null;
+  headline?: string | null;
+  shortBio?: string | null;
+  heroTerminal1?: string | null;
+  heroTerminal2?: string | null;
+  heroTerminal3?: string | null;
+  email?: string | null;
+  linkedinUrl?: string | null;
+  githubUrl?: string | null;
+  aboutTitle?: string | null;
+  aboutDescription?: string | null;
+  location?: string | null;
+  focus?: string | null;
+  resumeUrl?: string | null;
   [key: string]: unknown;
 }
 
@@ -59,25 +59,25 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">Name</label>
-              <input required name="name" defaultValue={profile.name} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
+              <input required name="name" defaultValue={profile.name || ""} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">Headline</label>
-              <input required name="headline" defaultValue={profile.headline} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
+              <input required name="headline" defaultValue={profile.headline || ""} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
             </div>
           </div>
           
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">Short Bio (under headline)</label>
-            <textarea required name="shortBio" defaultValue={profile.shortBio} rows={3} className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all resize-none"></textarea>
+            <textarea required name="shortBio" defaultValue={profile.shortBio || ""} rows={3} className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all resize-none"></textarea>
           </div>
 
           <div className="space-y-2 pt-2">
             <label className="text-sm font-medium text-foreground">Hero Terminal Text (3 lines)</label>
             <div className="space-y-3">
-              <input required name="heroTerminal1" defaultValue={profile.heroTerminal1} type="text" placeholder="Line 1 (e.g. Prabaswara Shafa Azarioma)" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground font-mono text-sm focus:outline-none focus:border-primary transition-all" />
-              <input required name="heroTerminal2" defaultValue={profile.heroTerminal2} type="text" placeholder="Line 2 (e.g. Backend Developer | Software QA)" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground font-mono text-sm focus:outline-none focus:border-primary transition-all" />
-              <input required name="heroTerminal3" defaultValue={profile.heroTerminal3} type="text" placeholder="Line 3 (e.g. Tech: PHP, Laravel, Python)" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground font-mono text-sm focus:outline-none focus:border-primary transition-all" />
+              <input required name="heroTerminal1" defaultValue={profile.heroTerminal1 || ""} type="text" placeholder="Line 1 (e.g. Prabaswara Shafa Azarioma)" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground font-mono text-sm focus:outline-none focus:border-primary transition-all" />
+              <input required name="heroTerminal2" defaultValue={profile.heroTerminal2 || ""} type="text" placeholder="Line 2 (e.g. Backend Developer | Software QA)" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground font-mono text-sm focus:outline-none focus:border-primary transition-all" />
+              <input required name="heroTerminal3" defaultValue={profile.heroTerminal3 || ""} type="text" placeholder="Line 3 (e.g. Tech: PHP, Laravel, Python)" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground font-mono text-sm focus:outline-none focus:border-primary transition-all" />
             </div>
           </div>
         </div>
@@ -88,21 +88,21 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">About Title (First paragraph)</label>
-            <textarea required name="aboutTitle" defaultValue={profile.aboutTitle} rows={3} className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all resize-none"></textarea>
+            <textarea required name="aboutTitle" defaultValue={profile.aboutTitle || ""} rows={3} className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all resize-none"></textarea>
           </div>
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground">About Description (Second paragraph)</label>
-            <textarea required name="aboutDescription" defaultValue={profile.aboutDescription} rows={3} className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all resize-none"></textarea>
+            <textarea required name="aboutDescription" defaultValue={profile.aboutDescription || ""} rows={3} className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all resize-none"></textarea>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">Location Stat</label>
-              <input required name="location" defaultValue={profile.location} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
+              <input required name="location" defaultValue={profile.location || ""} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">Focus Stat</label>
-              <input required name="focus" defaultValue={profile.focus} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
+              <input required name="focus" defaultValue={profile.focus || ""} type="text" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function ProfileForm({ profile }: { profile: Profile }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">Email</label>
-              <input required name="email" defaultValue={profile.email} type="email" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
+              <input required name="email" defaultValue={profile.email || ""} type="email" className="w-full px-4 py-3 bg-surface-container-low border border-outline/20 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all" />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">LinkedIn URL</label>

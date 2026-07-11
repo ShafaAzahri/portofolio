@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 
 interface ContactProfile {
-  email?: string;
-  linkedinUrl?: string;
-  githubUrl?: string;
+  email?: string | null;
+  linkedinUrl?: string | null;
+  githubUrl?: string | null;
 }
 
 export default function Contact({ profile }: { profile?: ContactProfile }) {
