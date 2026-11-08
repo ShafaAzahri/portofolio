@@ -1,30 +1,23 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
+import fs from "fs/promises";
+import path from "path";
 
 async function uploadImage(file: File) {
   if (!file || file.size === 0) return null;
   
-  const supabase = await createClient();
-  const fileExt = file.name.split('.').pop();
-  const fileName = `${Math.random()}.${fileExt}`;
-  const filePath = `${fileName}`;
-
-  const { data, error } = await supabase.storage
-    .from("portfolio-images")
-    .upload(filePath, file);
-
-  if (error) {
-    throw new Error(`Failed to upload image: ${error.message}`);
-  }
-
-  const { data: publicUrlData } = supabase.storage
-    .from("portfolio-images")
-    .getPublicUrl(filePath);
-
-  return publicUrlData.publicUrl;
+  const bytes = await file.arrayBuffer();
+  const buffer = Buffer.from(bytes);
+  const fileExt = file.name.split('.').pop() || 'png';
+  const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}.${fileExt}`;
+  const uploadDir = path.join(process.cwd(), "public", "uploads");
+  
+  await fs.mkdir(uploadDir, { recursive: true });
+  await fs.writeFile(path.join(uploadDir, fileName), buffer);
+  
+  return `/uploads/${fileName}`;
 }
 
 export async function createProject(formData: FormData) {

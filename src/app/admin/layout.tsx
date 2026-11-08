@@ -2,6 +2,8 @@ import Link from "next/link";
 import { logout } from "./login/actions";
 import { Button } from "@heroui/react";
 
+export const dynamic = "force-dynamic";
+
 export default function AdminLayout({
   children,
 }: {

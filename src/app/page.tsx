@@ -8,6 +8,8 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import ClientWrapper from "@/components/ClientWrapper";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const profile = await prisma.profile.findUnique({
     where: { id: 1 },
